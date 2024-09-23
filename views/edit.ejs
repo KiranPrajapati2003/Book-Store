@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/javascripts/bootstrap.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <header class="text-center  text-bg-dark  py-2 rounded">
+            <h1>Book Details</h1>
+        </header>
+    </div>
+
+    <section class="container d-flex align-items-center justify-content-center border border-dark py-3 mt-3">
+        
+        <form action="/insertData" method="post" class="row">
+
+            <div class="col-md-6 mb-2">
+                <label for="" class="mb-1">Title</label>
+                <input type="text" name="title" class="form-control" value="<%= data.title %>">
+                <input type="hidden" name="editId" class="form-control" value="<%= data.id %>">
+            </div>
+
+            <div class="col-md-6 mb-2">
+                <label for="" class="mb-1">Author</label>
+                <input type="text" name="author" class="form-control" value="<%= data.author %>">
+            </div>
+
+
+            <div class="col-md-6 mb-2">
+                <label for="" class="mb-1">Price</label>
+                <input type="text" name="price" class="form-control" value="<%= data.price %>">
+            </div>
+
+            <div class="col-md-6 mb-2">
+                <label for="" class="mb-1">City</label>
+                <select name="city" class="form-select" selected>
+                    <option value="select">--Select--</option>
+                    <option value="surat" <% if(data.city == 'surat'){ %> selected <% } %>>Surat</option>
+                    <option value="baroda" <% if(data.city == 'baroda'){ %> selected <% } %>>Baroda</option>
+                    <option value="vapi" <% if(data.city == 'vapi'){ %> selected <% } %>>Vapi</option>
+                </select>
+            </div>
+
+
+            <div class="col-12 mb-2">
+                <label for="" class="mb-1">Discription</label>
+                <textarea name="address" id="" class="form-control"><%= data.address %></textarea>
+            </div>
+
+
+            <div class="col-4 mb-2 language">
+                <label for="">Languages:</label>
+                <input type="checkbox" name="language" value="hindi" class="form-check-input" <% if(data.language.includes('hindi')){ %> checked <%} %>>hindi
+                <input type="checkbox" name="language" value="english" class="form-check-input" <% if(data.language.includes('english')){ %> checked <%} %>>english
+                <input type="checkbox" name="language" value="gujarati" class="form-check-input" <% if(data.language.includes('gujarati')){ %> checked <%} %>>gujarati
+            </div>
+
+            <div class="col-md-4 mb-2 pages">
+                <label for="">Pages:</label>
+                <input type="radio" class="form-check-input" name="page" value="001-150" <% if(data.page == ('001-150')){ %> checked <%} %>>001-150
+                <input type="radio" class="form-check-input" name="page" value="001-250" <% if(data.page == ('001-250')){ %> checked <%} %>>001-250
+                <input type="radio" class="form-check-input" name="page" value="001-300" <% if(data.page == ('001-3000')){ %> checked <%} %>>001-300
+            </div>
+
+            <div class="col-md-4 mb-2">
+                <label for="" class="mb-1">ISBN Number</label>
+                <input type="text" name="isbn" class="form-control" value="<%= data.isbn %>">
+            </div>
+
+            <div class="col-12 mb-2 text-center">
+                <input type="submit" value="Update Task" class="btn btn-primary">
+            </div>
+        </form>
+    </section>
+
+</body>
+</html>
